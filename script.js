@@ -11,6 +11,7 @@ document.getElementById('cidForm').addEventListener('submit', function(event) {
             fetch(url)
                 .then(response => response.json())
                 .then(data => {
+<<<<<<< HEAD
                     if (data === 404) {
                         document.getElementById('resultado').textContent = 'Cidade nao encontrada.';
 
@@ -26,4 +27,24 @@ document.getElementById('cidForm').addEventListener('submit', function(event) {
             document.getElementById('resultado').textContent = 'Digite uma cidade válida.';
         }
     });
+=======
+                    if (data.erro) {
+                        document.getElementById('resultado').textContent = 'Cidade nao encontrada.';
+
+                    } else {
+                        
+                        document.getElementById('resultado').textContent = `Clima: ${data.weather.main}. | Temperatura: ${data.main.temp}ºC | Umidade: ${data.main.humidity}% | Vento: ${data.wind.gust} km/h`;
+                    }
+                })
+                .catch(error => {
+                    document.getElementById('resultado'),textContent = 'Não foi possivel buscar cidade.';
+
+                });
+             } else {
+                    document.getElementById('resultado').textContent = 'Digite uma cidade válida.';
+
+                }
+        });
+
+>>>>>>> c5d146d55e28da05d6542a3157e91ef250515b5d
     
